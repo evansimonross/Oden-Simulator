@@ -1,0 +1,26 @@
+{
+  "name": "Oden-Simulator",
+  "version": "1.0.0",
+  "description": "An educational app to simulate eating the traditional Japanese wintertime dish known as oden.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/evansimonross/Oden-Simulator.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/evansimonross/Oden-Simulator/issues"
+  },
+  "homepage": "https://github.com/evansimonross/Oden-Simulator#readme",
+  "dependencies": {
+    "dotenv": "^6.0.0",
+    "express": "^4.16.3",
+    "express-handlebars": "^3.0.0",
+    "mysql": "^2.16.0"
+  }
+}
