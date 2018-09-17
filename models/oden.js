@@ -16,3 +16,5 @@ var oden = {
         orm.insert("types", "name", object, callback);
     }
 }
+
+module.exports = oden;
