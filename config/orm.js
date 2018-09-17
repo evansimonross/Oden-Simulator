@@ -36,6 +36,15 @@ var orm = {
             }
             callback(data);
         });
+    },
+    join: function(select, leftTable, rightTable, leftColumn, rightColumn, callback){
+        var queryString = "SELECT ?? FROM ?? AS lt LEFT JOIN ?? AS rt ON lt.?? = rt.??;";
+        connection.query(queryString, [select, leftTable, rightTable, leftColumn, rightColumn], function(err,data){
+            if(err){
+                throw err;
+            }
+            callback(data);
+        })
     }
 }
 

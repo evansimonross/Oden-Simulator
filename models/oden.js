@@ -1,17 +1,18 @@
 var orm = require("../config/orm");
 
 var oden = {
-    all: (callback) =>{
-        orm.all("ingredients", (data)=>{
-            var ingredientData = data;
-            orm.all("types", (data) => {
-                var typeData = data;
-                callback(ingredientData, typeData);
+    all: function (callback){
+        orm.all("types", (data)=>{
+            var types = data;
+            this.allIngredients((data) => {
+                var ingredients= data;
+                callback(ingredients, types);
             });
         });
     },
     allIngredients: function(callback){
-        orm.all("ingredients", callback);
+        var select = ["type_id", "name", "devoured"];
+        orm.join(select, "ingredients", "types", "type_id", "id", callback);
     },
     allTypes: function(callback){
         orm.all("types", callback);
