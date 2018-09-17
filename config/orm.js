@@ -44,7 +44,16 @@ var orm = {
                 throw err;
             }
             callback(data);
-        })
+        });
+    },
+    joinTest: function(callback){
+        var queryString = "SELECT ingredients.id, type_id, name, devoured FROM ingredients LEFT JOIN types ON ingredients.type_id = types.id;"
+        connection.query(queryString, function(err, data){
+            if(err){
+                throw err;
+            }
+            callback(data);
+        });
     }
 }
 

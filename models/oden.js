@@ -10,9 +10,12 @@ var oden = {
             });
         });
     },
+    // For some reason, the mysql query is telling me that the column "ingredients.id" doesn't exist when I escape it out. 
+    // Currently I have it hardcoded in under the joinTest orm function because I can't figure out a way around it...
     allIngredients: function(callback){
-        var select = ["type_id", "name", "devoured"];
-        orm.join(select, "ingredients", "types", "type_id", "id", callback);
+        orm.joinTest(callback);
+        //var select = ["ingredients.id", "type_id", "name", "devoured"];
+        //orm.join("ingredients", "id", select, "ingredients", "types", "type_id", "id", callback);
     },
     allTypes: function(callback){
         orm.all("types", callback);
