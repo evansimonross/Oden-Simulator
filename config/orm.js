@@ -27,6 +27,15 @@ var orm = {
             }
             callback(data);
         })
+    },
+    delete: function(table, condition, callback){
+        var queryString = "DELETE FROM ?? WHERE ?;";
+        connection.query(queryString, [table, condition], function(err, data){
+            if(err){
+                throw err;
+            }
+            callback(data);
+        });
     }
 }
 

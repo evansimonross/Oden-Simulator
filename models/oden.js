@@ -20,6 +20,12 @@ var oden = {
     updateType: function(object, callback){
         var condition = {id: object.id};
         orm.update("types", object, condition, callback);
+    },
+    deleteIngredient: function(condition, callback){
+        orm.delete("ingredients", condition, callback);
+    },
+    deleteType: function(condition, callback){
+        orm.delete("types", condition, callback);
     }
 }
 

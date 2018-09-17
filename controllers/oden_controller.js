@@ -21,6 +21,12 @@ router.put("/api/ingredients", function(req, res){
     })
 })
 
+router.delete("/api/ingredients", function(req, res){
+    oden.deleteIngredient(req.body, function(data){
+        res.json({affectedRows: data.affectedRows});
+    })
+})
+
 router.get("/api/types", function(req, res){
     oden.allTypes(function(data){
         res.json(data);
@@ -35,6 +41,12 @@ router.post("/api/types", function(req, res){
 
 router.put("/api/types", function(req, res){
     oden.updateType(req.body, function(data){
+        res.json({affectedRows: data.affectedRows});
+    })
+})
+
+router.delete("/api/types", function(req, res){
+    oden.deleteType(req.body, function(data){
         res.json({affectedRows: data.affectedRows});
     })
 })
