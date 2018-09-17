@@ -1,6 +1,15 @@
 var orm = require("../config/orm");
 
 var oden = {
+    all: (callback) =>{
+        orm.all("ingredients", (data)=>{
+            var ingredientData = data;
+            orm.all("types", (data) => {
+                var typeData = data;
+                callback(ingredientData, typeData);
+            });
+        });
+    },
     allIngredients: function(callback){
         orm.all("ingredients", callback);
     },

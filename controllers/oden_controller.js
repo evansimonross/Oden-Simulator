@@ -3,6 +3,20 @@ var router = express.Router();
 
 var oden = require("../models/oden.js");
 
+// handlebars routes
+
+router.get("/", function(req, res){
+    oden.all(function(ingredients, types){
+        var data = {
+            ingredients: ingredients,
+            types: types
+        }
+        res.render("index",data);
+    })
+});
+
+// api routes
+
 router.get("/api/ingredients", function(req, res){
     oden.allIngredients(function(data){
         res.json(data);
