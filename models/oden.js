@@ -7,13 +7,19 @@ var oden = {
     allTypes: function(callback){
         orm.all("types", callback);
     },
-    newIngredient: function(type_id, callback){
-        var object = {type_id: type_id};
-        orm.insert("ingredients", "type_id", object, callback);
+    newIngredient: function(object, callback){
+        orm.insert("ingredients", object, callback);
     },
-    newType: function(name, callback){
-        var object = {name: name};
-        orm.insert("types", "name", object, callback);
+    newType: function(object, callback){
+        orm.insert("types", object, callback);
+    },
+    updateIngredient: function(object, callback){
+        var condition = {id: object.id};
+        orm.update("ingredients", object, condition, callback);
+    },
+    updateType: function(object, callback){
+        var condition = {id: object.id};
+        orm.update("types", object, condition, callback);
     }
 }
 

@@ -10,9 +10,15 @@ router.get("/api/ingredients", function(req, res){
 });
 
 router.post("/api/ingredients", function(req, res){
-    oden.newIngredient(res.body.type_id, function(data){
+    oden.newIngredient(req.body, function(data){
         res.json({id: data.insertId});
     });
+})
+
+router.put("/api/ingredients", function(req, res){
+    oden.updateIngredient(req.body, function(data){
+        res.json({affectedRows: data.affectedRows});
+    })
 })
 
 router.get("/api/types", function(req, res){
@@ -22,9 +28,15 @@ router.get("/api/types", function(req, res){
 });
 
 router.post("/api/types", function(req, res){
-    oden.newIngredient(res.body.name, function(data){
+    oden.newType(req.body, function(data){
         res.json({id: data.insertId});
     });
+})
+
+router.put("/api/types", function(req, res){
+    oden.updateType(req.body, function(data){
+        res.json({affectedRows: data.affectedRows});
+    })
 })
 
 module.exports = router;
