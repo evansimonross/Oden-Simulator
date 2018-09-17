@@ -3,18 +3,32 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-md-3 col-sm-4">
+        <div class="col-4">
+            <h4>Ingredient Types</h4>
             <ul>
-            {{#each types}}
-                <li>{{name}}</li>
-            {{/each}}
+                {{#each types}}
+                <li>{{name}} <button type="button" class="type-btn btn btn-primary btn-sm" data-type="{{id}}"><i class="fas fa-sign-in-alt"></i></button></li>
+                {{/each}}
             </ul>
         </div>
-        <div class="col-md-9 col-sm-8">
+        <div class="col-4">
+            <h4>Ready to Eat</h4>
             <ul>
-            {{#each ingredients}}
-                <li>{{name}} {{devoured}}</li>
-            {{/each}}
+                {{#each ingredients}}
+                {{#unless devoured}}
+                <li>{{name}}</li>
+                {{/unless}}
+                {{/each}}
+            </ul>
+        </div>
+        <div class="col-4">
+            <h4>Already Eaten</h4>
+            <ul>
+                {{#each ingredients}}
+                {{#if devoured}}
+                <li>{{name}}</li>
+                {{/if}}
+                {{/each}}
             </ul>
         </div>
     </div>
