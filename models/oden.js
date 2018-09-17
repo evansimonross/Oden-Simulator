@@ -35,7 +35,13 @@ var oden = {
         orm.delete("ingredients", condition, callback);
     },
     deleteType: function(condition, callback){
-        orm.delete("types", condition, callback);
+        orm.delete("types", condition, (data)=>{
+            var typeData = data;
+            this.deleteIngredient({type_id: condition.id}, (data)=>{
+                var ingredientData = data;
+                callback(ingredientData, typeData);
+            });
+        });
     }
 }
 
