@@ -1,11 +1,36 @@
-h1, h3{
+body {
+    background: url("../img/background.png");
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 400;
+}
+
+h1{
+    font-family: 'Ceviche One', cursive;
+    font-size: 3em;
+}
+
+h4{
+    font-family: 'Ceviche One', cursive;
+    font-size: 2em;
+}
+
+h5{
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 700;
+}
+
+h1, h5{
     text-align: center;
-    margin: 15px;
+    margin: 10px;
 }
 
 li{
     font-size:1.25em;
     margin-bottom: 10px;
+}
+
+p{
+    font-size: 1.125em;
 }
 
 .ingredient{
@@ -24,4 +49,13 @@ li{
     display:block;
     margin-left: auto;
     margin-right: auto;
+}
+
+.modal-header {
+    background: url("../img/background.png");
+}
+
+.close{
+    position: relative;
+    top: 10px;
 }

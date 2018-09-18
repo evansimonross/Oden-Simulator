@@ -59,8 +59,8 @@ $(document).ready(function () {
         <label for="description-text" class="col-form-label">Description:</label>
         <textarea class="form-control" id="description-text"></textarea>
       </div>
-      <p id="error" style="color:red"></p>`);
-        $('#ingredientModalFooter').append('<button id="saveType" type="button" class="btn btn-primary">Save ingredient</button>');
+      <p id="error" style="color:red">&nbsp;</p>
+      <button id="saveType" type="button" class="btn btn-primary">Save ingredient</button>`);
         $('#ingredientModal').modal('show');
 
         $('#saveType').on("click",function(){
