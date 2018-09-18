@@ -20,6 +20,9 @@ var oden = {
     allTypes: function(callback){
         orm.all("types", callback);
     },
+    selectType: function(condition, callback){
+        orm.select("types", condition, callback);
+    },
     newIngredient: function(object, callback){
         orm.insert("ingredients", object, callback);
     },

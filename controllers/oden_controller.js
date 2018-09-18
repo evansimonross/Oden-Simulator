@@ -47,6 +47,12 @@ router.get("/api/types", function(req, res){
     })
 });
 
+router.get("/api/types/:id", function(req, res){
+    oden.selectType({id: req.params.id}, function(data){
+        res.json(data);
+    });
+});
+
 router.post("/api/types", function(req, res){
     oden.newType(req.body, function(data){
         res.json({id: data.insertId});

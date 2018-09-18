@@ -12,6 +12,7 @@ CREATE TABLE ingredients (
 CREATE TABLE types (
     id INTEGER AUTO_INCREMENT,
     name VARCHAR(25) NOT NULL,
-    -- image VARCHAR(255),
+    image VARCHAR(255),
+    description VARCHAR(255),
     PRIMARY KEY (id)
 );

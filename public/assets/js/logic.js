@@ -28,4 +28,18 @@ $(document).ready(function(){
             location.reload();
         });
     });
+
+    $(".ingredient").on("click", function(){
+        $.ajax({
+            url: "/api/types/" + $(this).data("id"),
+            method: "GET"
+        }).then(function(res){
+            var type = res[0]
+            $('#ingredientModalTitle').text(type.name.toUpperCase());
+            $('#ingredientModalBody').empty();
+            $('#ingredientModalBody').append('<img src="' + type.image + '">');
+            $('#ingredientModalBody').append('<p>' + type.description + '</p>');
+            $('#ingredientModal').modal('show');
+        });
+    });
 });

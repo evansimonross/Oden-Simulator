@@ -10,6 +10,15 @@ var orm = {
             callback(data);
         });
     },
+    select: function(table, condition, callback){
+        var queryString = "SELECT * FROM ?? WHERE ?;";
+        connection.query(queryString, [table, condition], function(err, data){
+            if(err){
+                throw err;
+            }
+            callback(data);
+        });
+    },
     insert: function(table, object, callback){
         var queryString = "INSERT INTO ?? SET ?;";
         connection.query(queryString, [table, object], function(err, data){
