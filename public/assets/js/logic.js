@@ -1,4 +1,19 @@
 $(document).ready(function () {
+    $('#main-title').on("click", function () {
+        $('#ingredientModalTitle').text("About Oden Simulator");
+        $('#ingredientModalBody').empty();
+        $('#ingredientModalBody').append('<p><b>Oden</b> is a Japanese soup made with a clear dashi broth and a wide array of solid ingredients. The ingredients are eaten as the main event, in an ensemble cast with the broth playing a background role. Oden warms the body and heart and is the perfect winter delight.</p>');
+        $('#ingredientModalBody').append('<img class="modalImg" src="assets/img/oden.jpg">')
+        $('#ingredientModalBody').append("<p><b>Oden Simulator</b> hopes to capture some of the magic of oden online. Here's how to use it:</p>");
+        var list = $('<ul>');
+        list.append('<li><button type="button" class="btn btn-primary btn-sm"><i class="fas fa-sign-in-alt"></i></button> <span>Add this ingredient to your oden.</span></li>')
+        list.append('<li><button type="button" class="btn btn-dark btn-sm"><i class="fas fa-plus"></i></button> <span>Add your own ingredient to the list.</span></li>')
+        list.append('<li><button type="button" class="btn btn-success btn-sm"><i class="fas fa-cookie-bite"></i></button> <span>Devour this ingredient.</span></li>')
+        list.append('<li><button type="button" class="btn btn-danger btn-sm"><i class="fas fa-times"></i></button> <span>Remove this devoured item.</span></li>')
+        $('#ingredientModalBody').append(list);
+        $('#ingredientModal').modal('show');
+    })
+
     $(".type-btn").on("click", function () {
         $.ajax({
             url: "/api/ingredients",
@@ -39,7 +54,6 @@ $(document).ready(function () {
             $('#ingredientModalBody').empty();
             $('#ingredientModalBody').append('<img class="modalImg" src="' + type.image + '">');
             $('#ingredientModalBody').append('<p>' + type.description + '</p>');
-            $('#ingredientModalFooter').empty();
             $('#ingredientModal').modal('show');
         });
     });
@@ -63,22 +77,22 @@ $(document).ready(function () {
       <button id="saveType" type="button" class="btn btn-primary">Save ingredient</button>`);
         $('#ingredientModal').modal('show');
 
-        $('#saveType').on("click",function(){
+        $('#saveType').on("click", function () {
             var name = $('#ingredient-name').val().trim().toLowerCase();
-            if(!name) { 
+            if (!name) {
                 $('#error').text("Please input an ingredient name.");
                 return;
             }
             var img = $('#ingredient-image').val().trim();
-            if(!(img.includes(".png"))&&!(img.includes(".jpg"))&&!(img.includes(".gif"))){
+            if (!(img.includes(".png")) && !(img.includes(".jpg")) && !(img.includes(".gif"))) {
                 img = "";
             }
-            if(!img){
+            if (!img) {
                 $('#error').text("Please input a valid image URL.");
                 return;
             }
             var desc = $('#description-text').val().trim();
-            if(!desc){
+            if (!desc) {
                 $('#error').text("Please input a description.");
                 return;
             }
@@ -90,7 +104,7 @@ $(document).ready(function () {
                     image: img,
                     description: desc
                 }
-            }).then(function(){
+            }).then(function () {
                 location.reload();
             });
         });
