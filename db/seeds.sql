@@ -2,7 +2,7 @@
 INSERT INTO types (name, image, description) VALUES (
     'daikon',
     'assets/img/daikon.png',
-    'This huge white radish is crunchy and astringent when raw, but gets buttery soft and mild when boiled and eaten with oden.'
+    'This huge white radish is crunchy and astringent when raw, but gets buttery-soft and mild when boiled and eaten with oden.'
     );
 INSERT INTO types (name, image, description) VALUES (
     'potato',
@@ -29,7 +29,7 @@ INSERT INTO types (name, image, description) VALUES (
 INSERT INTO types (name, image, description) VALUES (
     'konnyaku',
     'assets/img/konnyaku.png',
-    'Konnyaku is a rubbery, gelatinous block made from a tuber similar to taro. Since it is pretty flavorless on its own, it usually has hijiki seaweed added to it.'
+    'Konnyaku is a rubbery, gelatinous block made from a tuber similar to taro. Since it is pretty flavorless on its own, it usually has hijiki seaweed added into it.'
     );
 INSERT INTO types (name, image, description) VALUES (
     'shirataki',
@@ -73,7 +73,7 @@ INSERT INTO types (name, image, description) VALUES (
 INSERT INTO types (name, image, description) VALUES (
     'chikuwabu',
     'assets/img/chikuwabu.png',
-    'The shape resembles chikuwa, but do not be fooled! These are made from wheat or rice flour and a mild and chewy treat.'
+    'The shape resembles chikuwa, but do not be fooled! These are made from wheat or rice flour and are a mild and chewy treat.'
     );
 
 --protein
